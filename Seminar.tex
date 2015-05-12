@@ -1,0 +1,163 @@
+\documentclass[11pt]{beamer}
+\usetheme{Rochester}
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\setitemize{label=\usebeamerfont*{itemize item}
+	\usebeamercolor[fg]{itemize item}
+	\usebeamertemplate{itemize item}}
+
+\author{Fin Bauer and Stefan Heidekrüger}
+\title{Semidefinite Programming}
+%\subtitle{}
+%\logo{}
+%\institute{}
+%\date{}
+%\subject{}
+%\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+	\maketitle
+\begin{frame}
+	\frametitle{Outline}
+	\tableofcontents
+\end{frame}
+\section{Introduction}	
+	\begin{frame}
+		\frametitle{What Is Semidefinite Programming?}
+	\begin{block}{\vspace*{-3ex}}
+		\begin{equation}
+		\begin{aligned}
+		\min_X \quad\langle C,X \rangle &:= Tr(CX)=\sum_{i=1}^{n}\sum_{j=1}^{n}C_{ij}X_{ij}\\
+		\text{s.t.}\quad\langle A_i,X\rangle&\:= b_i\\
+		X&\:\succeq 0
+		\end{aligned}
+		\end{equation}
+	\end{block}
+	\end{frame}
+	\begin{frame}
+		\frametitle{An Easy Example}
+		\begin{equation*}
+		C=\begin{pmatrix}
+		1 & 2 \\
+		2 & 9 \\
+		\end{pmatrix},\; A_1=\begin{pmatrix}
+		1 & 0 \\
+		0 & 3 \\
+		\end{pmatrix},\; A_2=\begin{pmatrix}
+		0 & 2 \\
+		2 & 3 \\
+		\end{pmatrix},\; b_1=11,\; b_2=19
+		\end{equation*}
+		\pause
+		\begin{block}{\vspace*{-3ex}}
+		\begin{equation*}
+		\begin{aligned}
+		\min\quad && x_{11}+2x_{21}+2x_{12}+9x_{22}\\
+		\text{s.t.}\quad&& x_{11}+x_{22}= & \:11\\
+		&&  2x_{21}+2x_{12}+3x_{22}= & \:19\\
+		&& X=\begin{pmatrix}
+		x_{11}& x_{12}\\
+		x_{21}& x_{22}\\
+		\end{pmatrix}\succeq&\: 0
+		\end{aligned}
+		\end{equation*}
+		\end{block}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Have I Ever Seen Semidefinite Programming Before?}
+		\begin{itemize}[leftmargin=-0.3cm]
+		\item Linear Programming\\
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				\begin{block}{Linear Program}
+					\scriptsize
+					\abovedisplayskip=0pt
+					\abovedisplayshortskip=0pt 
+					\belowdisplayskip=0pt
+					\belowdisplayshortskip=0pt 
+					\begin{equation*}
+					\begin{aligned}
+					\min_x\quad  b_0^Tx+c_0\quad\\
+					\text{s.t.}\quad  b_i^Tx+c_i\leq&  \:0\text{,\quad i in 1,...,n}\\
+					 x\geq& \:0
+					\end{aligned}
+					\end{equation*}
+				\end{block}
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\begin{block}{Hint}
+					Diagonal Matrix
+				\end{block}
+			\end{column}
+		\end{columns}
+		\item Convex Quadratically Constrained Quadratic Programming\\
+		\begin{columns}
+		\begin{column}{0.5\textwidth}
+		\begin{block}{CQCQP}
+		\scriptsize
+		\abovedisplayskip=0pt
+		\abovedisplayshortskip=0pt 
+		\belowdisplayskip=0pt
+		\belowdisplayshortskip=0pt 
+		\begin{equation*}
+		\begin{aligned}
+		\min\quad &x^TA_0x+b_0^Tx+c_0\\
+		\text{s.t.}\quad &x^TA_ix+b_i^Tx+c_i\leq 0\text{,\quad i in 1,...,n}
+		\end{aligned}
+		\end{equation*}
+		\end{block}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{block}{Hint}
+			\scriptsize
+			\begin{equation*}
+			\begin{aligned}
+			\text{Given }A_i=M_i^TM_i\\
+			\text{then }x^TA_ix+b_i^Tx+c_i\leq 0 \\
+			\begin{pmatrix}
+			I & M_ix\\
+			x^TM_i^T & -c_i-b_i^Tx\\
+			\end{pmatrix}
+			\succeq 0
+			\end{aligned}
+			\end{equation*}
+			\end{block}
+		\end{column}
+		\end{columns}
+		\end{itemize}
+	\end{frame}
+\section{Some Theory}
+\subsection{Duality}
+	\begin{frame}
+		\frametitle{bla}
+	\end{frame}
+\subsection{Optimality}
+	\begin{frame}
+		\frametitle{bla}
+	\end{frame}
+\section{Algorithms}
+\subsection{Interior Points}
+\begin{frame}
+	\frametitle{bla}
+\end{frame}
+\section{Applications}
+\subsection{Lovasz}
+\begin{frame}
+	\frametitle{bla}
+\end{frame}
+\subsection{Max Cut}
+\begin{frame}
+	\frametitle{bla}
+\end{frame}
+\subsection{Machine Learning}
+\begin{frame}
+	\frametitle{bla}
+\end{frame}
+\end{document}
