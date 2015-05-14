@@ -136,11 +136,36 @@
 \section{Some Theory}
 \subsection{Duality}
 	\begin{frame}
-		\frametitle{bla}
+		\frametitle{What's the Dual?}
+		\begin{block}{Primal Problem in Standard Form}
+			\begin{equation}
+			\inf_X\{Tr(CX);Tr(A_iX)=b_i\;(i=1,...,m),\;X\in \mathcal{S}^+_n\}
+			\end{equation}
+		\end{block}
+		\begin{block}{Dual Problem in Standard Form}
+			\begin{equation}
+			\sup_{y,S}\{b^Ty;\sum_{i=1}^{m}y_iA_i+S=C,\;S\in \mathcal{S}^+_n,y\in\mathbb{R}^m\}
+			\end{equation}
+		\end{block}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Weak and Strong Duality}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Example with Duality Gap}
 	\end{frame}
 \subsection{Optimality}
 	\begin{frame}
-		\frametitle{bla}
+		\frametitle{When is the Solution Optimal?}
+		\begin{block}{Optimality Conditions}
+			\begin{equation*}
+			\begin{aligned}
+			Tr(A_iX)&=b_i,\quad X\succeq 0,\quad i=1,...,m\\
+			\sum_{i=1}^{m}y_iA_i+S&=C,\quad S\succeq 0\\
+			XS&=0
+			\end{aligned}
+			\end{equation*}
+		\end{block}
 	\end{frame}
 \section{Algorithms}
 \subsection{Interior Points}
