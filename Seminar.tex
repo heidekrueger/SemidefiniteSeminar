@@ -32,14 +32,15 @@
 	\begin{frame}
 		\frametitle{What Is Semidefinite Programming?}
 	\begin{block}{\vspace*{-3ex}}
-		\begin{equation}
+		\begin{equation*}
 		\begin{aligned}
 		\min_X \quad\langle C,X \rangle &:= Tr(CX)=\sum_{i=1}^{n}\sum_{j=1}^{n}C_{ij}X_{ij}\\
 		\text{s.t.}\quad\langle A_i,X\rangle&\:= b_i\\
 		X&\:\succeq 0
 		\end{aligned}
-		\end{equation}
+		\end{equation*}
 	\end{block}
+	C, X symmetric $X \succeq 0$ positive semidefinite(s.d.p)
 	\end{frame}
 	\begin{frame}
 		\frametitle{An Easy Example}
@@ -71,7 +72,7 @@
 		\end{block}
 	\end{frame}
 	\begin{frame}
-		\frametitle{Have I Ever Seen Semidefinite Programming Before?}
+		\frametitle{Problem Session: \newline Have I Ever Seen Semidefinite Programming Before?}
 		\begin{itemize}[leftmargin=-0.3cm]
 		\item Linear Programming\\
 		\begin{columns}
@@ -133,6 +134,25 @@
 		\end{columns}
 		\end{itemize}
 	\end{frame}
+	\begin{frame}
+		\frametitle{Problem Session:\newline What is modeled here and is it a SDP?}
+		\begin{block}{\vspace*{-3ex}}
+			\begin{equation*}
+			\begin{aligned}
+				\max\quad& \rho\\
+				\text{s.t.}\quad&(a_i-c)^TE(a_i-c)\leq 1\;\forall i\\
+				&(b_j-c)^TE(b_j-c)\geq \rho^2\;\forall j\\
+				& E\in\mathbb{S}^n_+
+			\end{aligned}
+		\end{equation*}
+		\end{block}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Problem Session: \newline Model Max-Cut}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Problem Session: \newline Lovasz}
+	\end{frame}
 \section{Some Theory}
 \subsection{Duality}
 	\begin{frame}
@@ -183,6 +203,32 @@
 \end{frame}
 \subsection{Machine Learning}
 \begin{frame}
-	\frametitle{bla}
+	\frametitle{Classification - Using SDP to tell two things apart (1)}
+	\begin{block}{Ellipsoid}
+		\begin{equation*}
+			\mathcal{E}=\{x\in\mathbb{R}^n;\:(x-c)^TE(x-c)<=1,\;E \text{ is p.s.d.}\}
+		\end{equation*}
+	\end{block}
+	\begin{block}{First idea for SDP}
+		\begin{equation*}
+		\begin{aligned}
+		\max\quad& \rho\\
+		\text{s.t.}\quad&(a_i-c)^TE(a_i-c)\leq 1\;\forall i\\
+		&(b_j-c)^TE(b_j-c)\geq \rho^2\;\forall j\\
+		& E\in\mathbb{S}^n_+
+		\end{aligned}
+		\end{equation*}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Classification - Using SDP to tell two things apart (2)}
+	\begin{equation*}
+	\begin{aligned}
+	\max\quad& \rho\\
+	\text{s.t.}\quad&(1,a_i)^T\bar{E}(1,a_i)\leq 1\;\forall i\\
+	&(1,b_j)^T\bar{E}(1,b_j)\geq \rho^2\;\forall j\\
+	& E\in\mathbb{S}^{n+1}_+
+	\end{aligned}
+	\end{equation*}
 \end{frame}
 \end{document}
