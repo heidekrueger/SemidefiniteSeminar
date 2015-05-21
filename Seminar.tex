@@ -212,9 +212,12 @@
 	\frametitle{bla}
 \end{frame}
 \section{Applications}
-\subsection{Lovasz}
+\subsection{The Lovász number}
 \begin{frame}
-	\frametitle{bla}
+	\frametitle{The Lovász number}
+	\begin{block}{Definition (SDP-variant)}
+		Let $G=(V,E)$ be a graph.
+	\end{block}
 \end{frame}
 \subsection{Max Cut}
 \begin{frame}
@@ -295,7 +298,7 @@
 	    \end{block}
 	\end{frame}
 
-	\begin{frame}\frametitle{How $(P) \Leftrightarrow (SP)?$}
+	\begin{frame}\frametitle{How is $(P) \Leftrightarrow (SP)?$}
 	    \begin{itemize}
 	    	\item Recall that a symmetric matrix $A\in \mathbb R^n$ is positive semidefinite iff for some $m\leq n$
 	    	$$\exists B\in\mathbb R^{m\times n}: A = B^TB$$
@@ -308,14 +311,33 @@
 		\begin{block}{}
 		\begin{itemize}
 			\item For this particular Problem, strong duality holds.
-			\item Using the dual, a cut with weight at least $W^*_{SQ}-\varepsilon$ can be found in $\mathcal O(\sqrt{n}(\log W_{tot}+\log\frac{1}{\varepsilon})$ iterations using an interior point algorithm.
+			\item Using the dual, a cut with weight at least $W^*_{SQ}-\varepsilon$ can be found in $\mathcal O(\sqrt{n}(\log W_{tot}+\log\frac{1}{\varepsilon})$ iterations using an interior point algorithm. Each iteration can be implemented in $\mathcal O(n^3)$
 			\item This cut is a 0.878 approximation to $W_{MC}^*$
 		\end{itemize}
 		\end{block}
+		\note{Algo: Alizadeh 1995}
+	\end{frame}
+
+	\begin{frame}\frametitle{'Quality' of the approximation}
+		\begin{block}{Can $\alpha>0.87856$ be improved?}
+			No! The relaxation is tight.
+			\begin{itemize}
+				\item For $C_5: E[W] \approx .884 W^*_{MC}$ 
+				\item For Peterson graph $\approx .8787$
+				\item Examples are known such that $E[W] < .8786 W^*_{MC}$
+			\end{itemize}
+		\end{block}
+		\begin{block}{How does the algorithm do in practice?}
+			\begin{itemize}
+				\item Usually within $4\%$ of $W^*_MC$
+				\item 'Almost always' within $9\%$
+			\end{itemize}
+		\end{block}
+	
 	\end{frame}
 
 
-	
+
 \subsection{Machine Learning}
 \begin{frame}
 	\frametitle{Problem 4:\newline What is modeled here and is it a SDP?}
