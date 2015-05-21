@@ -178,21 +178,57 @@
 		\frametitle{What's the Dual?}
 		\begin{block}{Primal Problem in Standard Form}
 			\begin{equation*}
-			\inf_X\{Tr(CX);Tr(A_iX)=b_i\;(i=1,...,m),\;X\in \mathcal{S}^+_n\}
+			\mathcal{P}=\inf_X\{Tr(CX);Tr(A_iX)=b_i\;(i=1,...,m),\;X\in \mathcal{S}^+_n\}
 			\end{equation*}
 		\end{block}
 		\begin{block}{Dual Problem in Standard Form}
 			\begin{equation*}
-			\sup_{y,S}\{b^Ty;\sum_{i=1}^{m}y_iA_i+S=C,\;S\in \mathcal{S}^+_n,y\in\mathbb{R}^m\}
+			\mathcal{D}=\sup_{y,S}\{b^Ty;\sum_{i=1}^{m}y_iA_i+S=C,\;S\in \mathcal{S}^+_n,y\in\mathbb{R}^m\}
 			\end{equation*}
 		\end{block}
 	\end{frame}
 	\begin{frame}
-		\frametitle{Weak and Strong Duality}
+		\frametitle{Weak Duality}
+		\begin{block}{Duality Gap}
+			Let $X\in\mathcal{P}$ and $(y,S)\in\mathcal{D}$. The quantity
+			\begin{equation*}
+				\langle C,X \rangle-b^Ty
+			\end{equation*}
+			is called the duality gap of $\mathcal{P} and \mathcal{D}$ at $(X,y,S)$.
+		\end{block}
+		\begin{block}{Weak Duality}
+			Let $X\in\mathcal{P}$ and $(y,S)\in\mathcal{D}$. One has
+			\begin{equation*}
+			\langle C,X \rangle-b^Ty=\langle S,X \rangle\geq 0
+			\end{equation*}
+		\end{block}
 	\end{frame}
 	\begin{frame}
 		\frametitle{Example with Duality Gap}
+		\begin{block}{Primal Problem}
+			\begin{equation*}
+			\min\;-x_2\quad\text{s.t.}\quad\begin{pmatrix}
+			x_2-a & 0 & 0\\
+			0 & x_1 & x_2\\
+			0 & x_2 & 0\\
+			\end{pmatrix}\preceq 0
+			\end{equation*}
+		\end{block}
+		\begin{block}{Dual Problem}
+			\begin{equation*}
+			\max\;-aw_{11}\quad\text{s.t.}\quad\Omega\succeq 0,\;w_{22}=0, w_{11}+2w_{23}=1
+			\end{equation*}
+		\end{block}
 	\end{frame}
+\begin{frame}
+	\frametitle{Strong Duality}
+	\begin{block}{Strict Feasibility}
+		There exists $X\in\mathcal{P}$ and $S\in\mathcal{D}$ such that $X\prec 0$ and $S\prec 0$.
+	\end{block}
+	\begin{block}{Strong Duality}
+		Let $\mathcal{P}$ and $\mathcal{D}$ be strictly feasible. Then the duality gap is zero and the optimal sets of both the primal and the dual solution are nonempty.
+	\end{block}
+\end{frame}
 \subsection{Optimality}
 	\begin{frame}
 		\frametitle{When is the Solution Optimal?}
@@ -209,7 +245,12 @@
 \section{Algorithms}
 \subsection{Interior Points}
 \begin{frame}
-	\frametitle{bla}
+	\frametitle{How to solve it?}
+	\begin{block}{Interior Point Algorithm}
+		\begin{equation*}
+			\min_X {\langle C,X \rangle - \mu\log\det(X);\;\langle A_i,X \rangle=b_i\quad(i=1;\dots,m)}
+		\end{equation*}
+	\end{block}
 \end{frame}
 \section{Applications}
 \subsection{The Lovász number}
@@ -282,7 +323,7 @@
 		\end{block}	
 	\end{frame}
 
-	\begin{frame}\frametitle{SDP formulation of (P)}
+		\begin{frame}\frametitle{SDP formulation of (P)}
 		\begin{block}<1->{(SD) }
 			\begin{equation*}
 				\begin{aligned}
