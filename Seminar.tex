@@ -38,12 +38,12 @@
 		\begin{equation*}
 		\begin{aligned}
 		\min_X \quad\langle C,X \rangle &:= Tr(CX)=\sum_{i=1}^{n}\sum_{j=1}^{n}C_{ij}X_{ij}\\
-		\text{s.t.}\quad\langle A_i,X\rangle&\:= b_i\\
+		\text{s.t.}\quad\langle A_i,X\rangle&\:= b_i,\quad i=1,\dots,m\\
 		X&\:\succeq 0
 		\end{aligned}
 		\end{equation*}
 	\end{block}
-	C, X symmetric $X \succeq 0$ positive semidefinite(s.d.p)
+	$C$, $A_i$, $X$ $\in \mathbb{R}^{nxn}$ symmetric \newline $X \succeq 0$ $\hat{=}$ X is positive semidefinite (p.s.d.)
 	\end{frame}
 	\begin{frame}
 		\frametitle{An Easy Example}
@@ -75,7 +75,34 @@
 		\end{block}
 	\end{frame}
 	\begin{frame}
-		\frametitle{Problem Session: \newline Have I Ever Seen Semidefinite Programming Before?}
+		\frametitle{Problem Session}
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				\begin{block}{Problem 1}
+					Are Linear Programs (LP) and Convex Quadratically Constrained Quadratic Programs (CQCQP) Semidefinite Programs (SDP)?
+				\end{block}
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\begin{block}{Problem 2}
+					max cut
+				\end{block}
+			\end{column}
+		\end{columns}
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				\begin{block}{Problem 3}
+					lovasz
+				\end{block}
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\begin{block}{Problem 4}
+					\vspace{4.4ex} Is a certain optimization problem a SDP and what does it model?\vspace{4.5ex}
+				\end{block}
+			\end{column}
+		\end{columns}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Problem 1: \newline Have I Ever Seen Semidefinite Programming Before?}
 		\begin{itemize}[leftmargin=-0.3cm]
 		\item Linear Programming\\
 		\begin{columns}
@@ -138,37 +165,26 @@
 		\end{itemize}
 	\end{frame}
 	\begin{frame}
-		\frametitle{Problem Session:\newline What is modeled here and is it a SDP?}
-		\begin{block}{\vspace*{-3ex}}
-			\begin{equation*}
-			\begin{aligned}
-				\max\quad& \rho\\
-				\text{s.t.}\quad&(a_i-c)^TE(a_i-c)\leq 1\;\forall i\\
-				&(b_j-c)^TE(b_j-c)\geq \rho^2\;\forall j\\
-				& E\in\mathbb{S}^n_+
-			\end{aligned}
-		\end{equation*}
+		\frametitle{Optimization Hierarchy}
+		\begin{block}{\vspace{-3ex}}
+			\centering \large LP $<$ CQCQP $<$ SDP $<$ Convex Programming
 		\end{block}
 	\end{frame}
-	\begin{frame}
-		\frametitle{Problem Session: \newline Model Max-Cut}
-	\end{frame}
-	\begin{frame}
-		\frametitle{Problem Session: \newline Lovasz}
-	\end{frame}
+
+
 \section{Some Theory}
 \subsection{Duality}
 	\begin{frame}
 		\frametitle{What's the Dual?}
 		\begin{block}{Primal Problem in Standard Form}
-			\begin{equation}
+			\begin{equation*}
 			\inf_X\{Tr(CX);Tr(A_iX)=b_i\;(i=1,...,m),\;X\in \mathcal{S}^+_n\}
-			\end{equation}
+			\end{equation*}
 		\end{block}
 		\begin{block}{Dual Problem in Standard Form}
-			\begin{equation}
+			\begin{equation*}
 			\sup_{y,S}\{b^Ty;\sum_{i=1}^{m}y_iA_i+S=C,\;S\in \mathcal{S}^+_n,y\in\mathbb{R}^m\}
-			\end{equation}
+			\end{equation*}
 		\end{block}
 	\end{frame}
 	\begin{frame}
@@ -202,7 +218,7 @@
 \end{frame}
 \subsection{Max Cut}
 \begin{frame}
-	\frametitle{What is MAX CUT?}
+	\frametitle{Problem 2: \newline What is MAX CUT?}
 	\only<1>{\emph{Group presentation time.}}
 	\only<2>{
 	\begin{block}{IQP Model}
@@ -301,6 +317,19 @@
 
 	
 \subsection{Machine Learning}
+\begin{frame}
+	\frametitle{Problem 4:\newline What is modeled here and is it a SDP?}
+	\begin{block}{\vspace*{-3ex}}
+		\begin{equation*}
+		\begin{aligned}
+		\max\quad& \rho\\
+		\text{s.t.}\quad&(a_i-c)^TE(a_i-c)\leq 1\;\forall i\\
+		&(b_j-c)^TE(b_j-c)\geq \rho^2\;\forall j\\
+		& E\in\mathbb{S}^n_+
+		\end{aligned}
+		\end{equation*}
+	\end{block}
+\end{frame}
 \begin{frame}
 	\frametitle{Classification - Using SDP to tell two things apart (1)}
 	\begin{block}{Ellipsoid}
