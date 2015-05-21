@@ -115,16 +115,18 @@
 					\belowdisplayshortskip=0pt 
 					\begin{equation*}
 					\begin{aligned}
-					\min_x\quad  b_0^Tx+c_0\quad\\
-					\text{s.t.}\quad  b_i^Tx+c_i\leq&  \:0\text{,\quad i in 1,...,n}\\
-					 x\geq& \:0
+					\min_x\quad & b_0^Tx\quad\\
+					\text{s.t.}\quad & b_i^Tx+c_i\leq  \:0\text{,\quad i in 1,...,n}\\
+					 &x\geq \:0
 					\end{aligned}
 					\end{equation*}
 				\end{block}
 			\end{column}
 			\begin{column}{0.5\textwidth}
 				\begin{block}{Hint}
+					\vspace{3.7ex}
 					Diagonal Matrix
+					\vspace{3.7ex}
 				\end{block}
 			\end{column}
 		\end{columns}
@@ -136,13 +138,15 @@
 		\abovedisplayskip=0pt
 		\abovedisplayshortskip=0pt 
 		\belowdisplayskip=0pt
-		\belowdisplayshortskip=0pt 
+		\belowdisplayshortskip=0pt
+		\vspace{4ex} 
 		\begin{equation*}
 		\begin{aligned}
 		\min\quad &x^TA_0x+b_0^Tx+c_0\\
 		\text{s.t.}\quad &x^TA_ix+b_i^Tx+c_i\leq 0\text{,\quad i in 1,...,n}
 		\end{aligned}
 		\end{equation*}
+		\vspace{4ex}
 		\end{block}
 		\end{column}
 		\begin{column}{0.5\textwidth}
@@ -150,9 +154,9 @@
 			\scriptsize
 			\begin{equation*}
 			\begin{aligned}
-			\text{Given }A_i=M_i^TM_i\\
+			\text{Given }A_i=M_i^TM_i&\\
 			\text{then }x^TA_ix+b_i^Tx+c_i\leq 0 \\
-			\begin{pmatrix}
+			\Leftrightarrow\begin{pmatrix}
 			I & M_ix\\
 			x^TM_i^T & -c_i-b_i^Tx\\
 			\end{pmatrix}
@@ -447,13 +451,26 @@
 \end{frame}
 \begin{frame}
 	\frametitle{Classification - Using SDP to tell two things apart (2)}
-	\begin{equation*}
-	\begin{aligned}
-	\max\quad& \rho\\
-	\text{s.t.}\quad&(1,a_i)^T\bar{E}(1,a_i)\leq 1\;\forall i\\
-	&(1,b_j)^T\bar{E}(1,b_j)\geq \rho^2\;\forall j\\
-	& E\in\mathbb{S}^{n+1}_+
-	\end{aligned}
-	\end{equation*}
+	\begin{block}{Second Idea}
+		\begin{equation*}
+		\begin{aligned}
+		\max\quad& \rho\\
+		\text{s.t.}\quad&(1,a_i)^T\bar{E}(1,a_i)\leq 1\;\forall i\\
+		&(1,b_j)^T\bar{E}(1,b_j)\geq \rho^2\;\forall j\\
+		& E\in\mathbb{S}^{n+1}_+
+		\end{aligned}
+		\end{equation*}
+	\end{block}
+	\pause
+	\begin{block}{Ellipsoid Separation}
+		\begin{equation*}
+		\begin{aligned}
+		\min\quad& -k\\
+		\text{s.t.}\quad&(1,a_i)^T\bar{E}(1,a_i)\leq 1\;\forall i\\
+		&(1,b_j)^T\bar{E}(1,b_j)\geq k\;\forall j\\
+		& E\in\mathbb{S}^{n+1}_+
+		\end{aligned}
+		\end{equation*}
+	\end{block}
 \end{frame}
 \end{document}
