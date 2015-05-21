@@ -12,8 +12,8 @@
 	\usebeamercolor[fg]{itemize item}
 	\usebeamertemplate{itemize item}}
 \usepackage{pgfpages}
-\setbeameroption{show notes}
-\setbeameroption{show notes on second screen}
+%\setbeameroption{show notes}
+%\setbeameroption{show notes on second screen}
 
 \author{Fin Bauer and Stefan Heidekrüger}
 \title{Semidefinite Programming}
@@ -84,14 +84,14 @@
 			\end{column}
 			\begin{column}{0.5\textwidth}
 				\begin{block}{Problem 2}
-					max cut
+					Model $MAX CUT$ as an IQP.
 				\end{block}
 			\end{column}
 		\end{columns}
 		\begin{columns}
 			\begin{column}{0.5\textwidth}
 				\begin{block}{Problem 3}
-					Repitition
+					Repitition of $\alpha(G), \omega(G), \chi(G)$
 				\end{block}
 			\end{column}
 			\begin{column}{0.5\textwidth}
@@ -286,6 +286,8 @@
 \begin{frame}\frametitle{So what?}
 	\begin{itemize}
 		\item Both the clique and the coloring problems are NP-complete, but $\vartheta$ can be found in polynomial time (using ellipsoid methods)
+		\item This gives an $n$-approximation to $\omega$ (and thus $\alpha$) and $\chi$
+		\item It can be shown that no $(n-\varepsilon)$-approximation is possible in polynomial time, unless $NP=ZPP$
 	\end{itemize}
     
 
@@ -309,9 +311,9 @@
 		Outline
 		\begin{itemize}
 			\item Relax (MC) into a QP (P)
-			\item Find approximation bound of QP
-			\item Show: equivalent SQP (SQ) to (P)
-			\item Strong duality holds for (SQ) (ommitted)
+			\item Find approximation bound of (P)
+			\item Show: (P) equivalent to SDP (SP)
+			\item Strong duality holds for (SP) (ommitted)
 			\item Solve SQP's dual in polynomial time
 		\end{itemize}		
 	\end{frame}
