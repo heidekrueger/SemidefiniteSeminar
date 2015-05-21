@@ -263,7 +263,7 @@
 		\end{block}	
 	\end{frame}
 
-		\begin{frame}\frametitle{SDP formulation of (P)}
+	\begin{frame}\frametitle{SDP formulation of (P)}
 		\begin{block}<1->{(SD) }
 			\begin{equation*}
 				\begin{aligned}
@@ -277,6 +277,25 @@
 	    $$ = \frac{1}{4}\sum_{i\in V}\sum_{j\in V}w_{ij}(1-y_{ij})$$
 	    $$ = \frac{1}{2}W_{tot} - \frac{1}{4}\langle W,Y \rangle$$
 	    \end{block}
+	\end{frame}
+
+	\begin{frame}\frametitle{How $(P) \Leftrightarrow (SP)?$}
+	    \begin{itemize}
+	    	\item Recall that a symmetric matrix $A\in \mathbb R^n$ is positive semidefinite iff for some $m\leq n$
+	    	$$\exists B\in\mathbb R^{m\times n}: A = B^TB$$
+	    	\item Given pos. semidef. $A$, such a $B$ can be found in $\mathcal O(n^3)$ using incomplete Cholesky decomposition.
+	    	\item Interpret $Y$ in (SP) as the Gram-Matrix of vectors $v_i$ in (P)
+	    \end{itemize}
+	\end{frame}
+
+	\begin{frame}\frametitle{(Almost) Solving (SQ) in polynomial time}
+		\begin{block}{}
+		\begin{itemize}
+			\item For this particular Problem, strong duality holds.
+			\item Using the dual, a cut with weight at least $W^*_{SQ}-\varepsilon$ can be found in $\mathcal O(\sqrt{n}(\log W_{tot}+\log\frac{1}{\varepsilon})$ iterations using an interior point algorithm.
+			\item This cut is a 0.878 approximation to $W_{MC}^*$
+		\end{itemize}
+		\end{block}
 	\end{frame}
 
 
