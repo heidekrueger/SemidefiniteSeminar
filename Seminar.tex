@@ -11,6 +11,9 @@
 \setitemize{label=\usebeamerfont*{itemize item}
 	\usebeamercolor[fg]{itemize item}
 	\usebeamertemplate{itemize item}}
+\usepackage{pgfpages}
+\setbeameroption{show notes}
+\setbeameroption{show notes on second screen}
 
 \author{Fin Bauer and Stefan Heidekrüger}
 \title{Semidefinite Programming}
@@ -199,8 +202,85 @@
 \end{frame}
 \subsection{Max Cut}
 \begin{frame}
-	\frametitle{bla}
+	\frametitle{What is MAX CUT?}
+	\only<1>{\emph{Group presentation time.}}
+	\only<2>{
+	\begin{block}{IQP Model}
+	Problem (MC) should be on the board now.
+	\end{block}}
+	\note<1->{\begin{equation*}\max \frac{1}{2}\sum_{i<j}w_{ij}(1-y_iy_j), \qquad s.t. y_i\in\{1,-1\}\end{equation*} }
 \end{frame}
+
+	\begin{frame}
+		\note{\begin{itemize}\item 1995 \item Approx: 0.87856 \item eq. algorithm already existed, but bound wasn't known.\end{itemize}}
+		\frametitle{An SDP-approximation algorithm (Goermans-Williamson)}
+		Outline
+		\begin{itemize}
+			\item Relax (MC) into a QP (P)
+			\item Find approximation bound of QP
+			\item Show: equivalent SQP (SQ) to (P)
+			\item Strong duality holds for (SQ) (ommitted)
+			\item Solve SQP's dual in polynomial time
+		\end{itemize}		
+	\end{frame}
+
+	\begin{frame}\frametitle{QP Relaxation of (MC)}
+		\begin{block}{(P) }
+			\begin{equation*}
+				\begin{aligned}
+				W_P^*:= \max \ &\frac{1}{2}\sum_{i<j}w_{ij}(1-v_i^Tv_j)\\
+				s.t. \ &v_i \in \mathbb{S}^n \qquad \forall i\in V
+				\end{aligned}
+			\end{equation*}
+		\end{block}
+	    \note{relaxation gives upper bound}
+	\end{frame}
+
+
+	\begin{frame}\frametitle{A randomized algorithm using (P)}
+		\begin{block}<1->{}
+		\begin{itemize}
+				\item[1.]{Solve (P) to get vectors $v_i$}
+				\item[2.]{Sample $r \sim UNIFORM(\mathbb S^n)$}
+				\item[3.]{Set $S:=\{i | v_i^Tr\geq 0\}$}
+		\end{itemize}
+		\end{block}
+		\only<2>{\begin{block}{For cut $W$ obtained this way:}
+		
+			$$E[W] = \sum_{i<j}w_{ij}\frac{\arccos(v_i^Tv_j)}{\pi}$$
+		
+		\end{block}}
+	\end{frame}
+
+	\begin{frame}\frametitle{A bound given by $E[W]$}
+		\begin{block}<1->{Theorem}
+			$$ E[W] \geq \alpha \frac{1}{2} \sum_{i<j}w_{ij}(1-v_i^Tv_j)$$
+			with
+			$$ \alpha:= \min_{0\leq \Theta \leq \pi}\frac{2}{\pi}\frac{\Theta}{1-\cos \Theta} > .87856\dots$$
+		\end{block}
+		\begin{block}<2->{Corollary}
+			$$ E[W] \geq \alpha W_{P}^* \geq \alpha W_{MC}^* $$
+		\end{block}	
+	\end{frame}
+
+		\begin{frame}\frametitle{SDP formulation of (P)}
+		\begin{block}<1->{(SD) }
+			\begin{equation*}
+				\begin{aligned}
+				W_P^*:= \max \ &\frac{1}{2}\sum_{i<j}w_{ij}(1-y_{ij})\\
+				s.t. \ &y_{ii} = 1 \qquad \forall i\in V\\
+					 & Y \ \textnormal{sym. pos. sem. def.}
+				\end{aligned}
+			\end{equation*}
+		\end{block}
+	    \begin{block}<2>{How is this an SDP? Rewrite the objective!}
+	    $$ = \frac{1}{4}\sum_{i\in V}\sum_{j\in V}w_{ij}(1-y_{ij})$$
+	    $$ = \frac{1}{2}W_{tot} - \frac{1}{4}\langle W,Y \rangle$$
+	    \end{block}
+	\end{frame}
+
+
+	
 \subsection{Machine Learning}
 \begin{frame}
 	\frametitle{Classification - Using SDP to tell two things apart (1)}

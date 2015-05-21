@@ -1,0 +1,52 @@
+\documentclass[a4paper]{scrartcl}
+
+\usepackage[utf8]{inputenc} %Zeichensatzkodierung
+\usepackage[english]{babel} % neue deutsche Rechtschreibung
+\usepackage[T1]{fontenc} % vortragstaugliche Schrift
+\usepackage{lmodern} % vortragstaugliche Schrift
+
+\usepackage[numbers]{natbib}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{color}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{ulsy}
+\usepackage{dsfont}
+
+\newcommand{\cupdot}{\mathbin{\mathaccent\cdot\cup}}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+
+
+\title{MAX-CUT Exercise}
+\subtitle{Seminar Modern Methods in Combinatorial Optimization}
+\date{\today}
+
+\begin{document}
+\maketitle
+\noindent
+Let $G=(V,E)$ be a simple graph with nonnegative edge weights $w_{ij}$. Further assume that $\forall i \in V: \ \{i,i\} \notin E.$\\
+An instance of the MAX CUT problem is to find a maximal cut in $G$, i.e. find $S, \bar S \subset V$, s.t. $V = S \cupdot \bar S$ and that
+$\sum_{\substack{i\in S \\ j \in\bar S}} w_{ij}$
+ is maximized.
+ \bigskip
+
+\textbf{Exercise 1:}
+Determine the max cut in the following graph:
+\vspace{200pt}
+
+\textbf{Exercise 2:}
+Formulate MAX CUT as an Integer Quadratic Program.
+
+\bigskip
+\noindent
+Ask Fin or Stefan if you need hints.
+
+\end{document}
