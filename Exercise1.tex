@@ -1,0 +1,68 @@
+\documentclass[a4paper]{scrartcl}
+
+\usepackage[utf8]{inputenc} %Zeichensatzkodierung
+\usepackage[english]{babel} % neue deutsche Rechtschreibung
+\usepackage[T1]{fontenc} % vortragstaugliche Schrift
+\usepackage{lmodern} % vortragstaugliche Schrift
+
+\usepackage[numbers]{natbib}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{color}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{ulsy}
+\usepackage{dsfont}
+
+\newcommand{\cupdot}{\mathbin{\mathaccent\cdot\cup}}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+
+
+\title{Have I ever Seen Semidefinite Programming?}
+\subtitle{Seminar Modern Methods in Combinatorial Optimization}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\noindent
+	Write the Linear Program and Convex Quadratically Constrained Quadratic Program as a Semidefinite Program
+	\bigskip
+	
+	\textbf{Linear Program:}
+	\begin{equation*}
+		\begin{aligned}
+			\min_x\quad & b_0^Tx\quad\\
+			\text{s.t.}\quad & b_i^Tx+c_i\leq  \:0,\quad i\text{ in } 1,\dots,n\\
+			&x\geq \:0
+		\end{aligned}
+	\end{equation*}
+	\textbf{Hint:}
+	Consider diagonal matrices
+	\bigskip
+	
+	\textbf{CQCQP:}
+	\begin{equation*}
+	\begin{aligned}
+	\min\quad &x^TA_0x+b_0^Tx+c_0\\
+	\text{s.t.}\quad &x^TA_ix+b_i^Tx+c_i\leq 0,\quad i\text{ in }1,\dots ,n
+	\end{aligned}
+	\end{equation*}
+	\textbf{Hint:}
+	\\
+	Given $A_i=M_i^TM_i$ then
+	\begin{equation*}
+	x^TA_ix+b_i^Tx+c_i\leq 0 \Leftrightarrow
+	\begin{pmatrix}
+	I & M_ix\\
+	x^TM_i^T & -c_i-b_i^Tx\\
+	\end{pmatrix}
+	\succeq 0
+	\end{equation*}
+\end{document}

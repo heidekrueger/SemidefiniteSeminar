@@ -1,0 +1,49 @@
+\documentclass[a4paper]{scrartcl}
+
+\usepackage[utf8]{inputenc} %Zeichensatzkodierung
+\usepackage[english]{babel} % neue deutsche Rechtschreibung
+\usepackage[T1]{fontenc} % vortragstaugliche Schrift
+\usepackage{lmodern} % vortragstaugliche Schrift
+
+\usepackage[numbers]{natbib}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{color}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{ulsy}
+\usepackage{dsfont}
+
+\newcommand{\cupdot}{\mathbin{\mathaccent\cdot\cup}}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+
+
+\title{What is it and is it Semidefinite Programming?}
+\subtitle{Seminar Modern Methods in Combinatorial Optimization}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\noindent
+	What does the following Program model and is it a Semidefinite Program?
+	\bigskip
+	
+	\textbf{Exercise:}\\
+	Given sets of vectors $a_i,b_j$ both in $\mathbb{R}^n$ and a vector c also in $\mathbb{R}^n$ consider the problem
+	\begin{equation*}
+	\begin{aligned}
+	\max\quad& \rho\\
+	\text{s.t.}\quad&(a_i-c)^TE(a_i-c)\leq 1\quad\forall i\\
+	&(b_j-c)^TE(b_j-c)\geq \rho^2\quad\forall j\\
+	& E\in\mathbb{S}^n_+
+	\end{aligned}
+	\end{equation*}
+	
+\end{document}
