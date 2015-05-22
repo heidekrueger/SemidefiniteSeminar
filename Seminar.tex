@@ -84,18 +84,26 @@
 			\end{column}
 			\begin{column}{0.5\textwidth}
 				\begin{block}{Problem 2}
+<<<<<<< HEAD
 					\vspace{5.9ex}
 					Model the MAXCUT Problem
 					\vspace{6ex}
+=======
+					Model $MAX CUT$ as an IQP.
+>>>>>>> origin/master
 				\end{block}
 			\end{column}
 		\end{columns}
 		\begin{columns}
 			\begin{column}{0.5\textwidth}
 				\begin{block}{Problem 3}
+<<<<<<< HEAD
 					\vspace{5.9ex}
 					The Lovasz Function
 					\vspace{6ex}
+=======
+					Repitition of $\alpha(G), \omega(G), \chi(G)$
+>>>>>>> origin/master
 				\end{block}
 			\end{column}
 			\begin{column}{0.5\textwidth}
@@ -265,9 +273,43 @@
 \begin{frame}
 	\frametitle{The Lovász number}
 	\begin{block}{Definition (SDP-variant)}
-		Let $G=(V,E)$ be a graph.
+		Let $G=(V,E)$ be a graph. Then the Lovász-number of its complement $\bar G$ is defined by
+		\begin{equation*}
+			\begin{aligned}
+			\vartheta(\bar G) := \max_X \ &  \langle ee^T, X\rangle = e^TXe\\
+			s.t.\ & x_{ij} = 0, \quad \forall i\neq j: (i,j)\notin E\\
+			& Tr(X) = 1\\
+			& X \textnormal{ sym. pos. sem. def.}
+			\end{aligned}
+		\end{equation*}
 	\end{block}
+	\note{\begin{itemize}\item Give other definition intuitively \\ \item Explain Shannon Capacity motivation\end{itemize}}
 \end{frame}
+
+\begin{frame}\frametitle{The sandwich theorem}
+    \begin{block}<1->{Theorem}
+    	$$ \omega(G) \leq \vartheta(\bar G) \leq \chi(G) $$
+    \end{block}
+    \begin{block}<2->{Example: Pentagon}
+    	$$\omega(G) = ? \qquad \vartheta(\bar G) = \sqrt 5 \qquad \chi(G)= ?$$
+    \end{block}
+    \begin{block}<3>{Proof idea}
+    SQP-relaxations of MAX CLIQUE (easy) and MIN COLORING (not so easy), respectively.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}\frametitle{So what?}
+	\begin{itemize}
+		\item Both the clique and the coloring problems are NP-complete, but $\vartheta$ can be found in polynomial time (using ellipsoid methods)
+		\item This gives an $n$-approximation to $\omega$ (and thus $\alpha$) and $\chi$
+		\item It can be shown that no $(n-\varepsilon)$-approximation is possible in polynomial time, unless $NP=ZPP$
+	\end{itemize}
+    
+
+
+\end{frame}
+
 \subsection{Max Cut}
 \begin{frame}
 	\frametitle{Problem 2: \newline What is MAX CUT?}
@@ -285,9 +327,9 @@
 		Outline
 		\begin{itemize}
 			\item Relax (MC) into a QP (P)
-			\item Find approximation bound of QP
-			\item Show: equivalent SQP (SQ) to (P)
-			\item Strong duality holds for (SQ) (ommitted)
+			\item Find approximation bound of (P)
+			\item Show: (P) equivalent to SDP (SP)
+			\item Strong duality holds for (SP) (ommitted)
 			\item Solve SQP's dual in polynomial time
 		\end{itemize}		
 	\end{frame}
